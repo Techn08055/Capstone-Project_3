@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list</title>
-</head>
-<body>
-    <div id="myDIV" class="header">
+<%- include("partials/header.ejs") %>
+<div id="myDIV" class="header"></div>
   <h2 style="margin:5px">My To Do List</h2>
   <form action="/" method="POST">
     <input type="text" name="myInput" placeholder="Title..." value=" ">
-    <input type="submit" value="Add">
+    <input type="submit" value="Add" >
   </form>
 </div>
 
@@ -18,10 +11,11 @@
     <%if(locals.tasks){%>
         <% tasks.forEach((task) => {%>
             <li>
-                <%= task%>
+                <input type="checkbox" name="packersOff" id="packers" value="1"/>
+                <label for="packers" class="strikethrough"><%= task%></label>
             </li>
         <%}); %>
     <% } %>
 </ul>
-</body>
-</html>
+
+<%- include("partials/footer.ejs") %>
